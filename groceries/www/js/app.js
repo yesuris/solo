@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic'])
 
-.controller('ListCtrl', function($scope) {
+.controller('ListCtrl', function($scope, $ionicListDelegate) {
 
   $scope.items = [];
 
@@ -16,5 +16,11 @@ angular.module('starter', ['ionic'])
         'name': name
       });
     }
+  };
+
+  $scope.purchaseItem = function(item) {
+  	$scope.item = item;
+  	$scope.item['status'] = 'purchased';
+  	$ionicListDelegate.closeOptionButtons();
   };
 });
